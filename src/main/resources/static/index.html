@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f8ff" />
+    <title>Bluegate · 安全登录</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar" aria-label="Bluegate">
+        <a class="brand" href="/" aria-label="Bluegate 首页">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>bluegate</span>
+        </a>
+        <span class="secure-label"><span class="secure-dot"></span>扫码验证</span>
+      </header>
+
+      <section class="login-card" aria-labelledby="page-title">
+        <div id="login-view">
+          <div class="card-heading">
+            <h1 id="page-title">扫码登录</h1>
+            <p class="subtitle">用手机扫描二维码，在手机页面验证并确认登录</p>
+          </div>
+
+          <div class="qr-stage" aria-label="登录二维码区域">
+            <div class="qr-frame"><img id="qr-image" alt="用于登录 Bluegate 的二维码" /></div>
+            <div id="qr-overlay" class="qr-overlay" hidden>
+              <span class="overlay-icon" aria-hidden="true">↻</span>
+              <span>二维码已过期</span>
+              <button id="refresh-button" class="refresh-link" type="button">点击刷新</button>
+            </div>
+            <span class="scan-corner corner-tl" aria-hidden="true"></span>
+            <span class="scan-corner corner-tr" aria-hidden="true"></span>
+            <span class="scan-corner corner-bl" aria-hidden="true"></span>
+            <span class="scan-corner corner-br" aria-hidden="true"></span>
+          </div>
+
+          <div class="status-row" aria-live="polite" aria-atomic="true">
+            <span id="status-icon" class="status-icon" aria-hidden="true"><span></span></span>
+            <span id="status-text">正在准备安全二维码…</span>
+          </div>
+
+          <ol class="steps" aria-label="登录步骤">
+            <li class="step is-current" id="step-scan"><span class="step-number">1</span><span>手机扫码</span></li>
+            <li class="step-connector" aria-hidden="true"></li>
+            <li class="step" id="step-confirm"><span class="step-number">2</span><span>确认登录</span></li>
+            <li class="step-connector" aria-hidden="true"></li>
+            <li class="step" id="step-done"><span class="step-number">3</span><span>登录成功</span></li>
+          </ol>
+
+          <div class="card-footer">
+            <span class="phone-icon" aria-hidden="true">▯</span>
+            <span>二维码有效期 2 分钟</span>
+          </div>
+        </div>
+
+        <div id="success-view" class="success-view" hidden>
+          <div class="success-symbol" aria-hidden="true"><span>✓</span></div>
+          <div class="eyebrow"><span class="eyebrow-line"></span>身份已确认</div>
+          <h1>登录成功</h1>
+          <p class="subtitle">欢迎回来，<strong id="username"></strong></p>
+          <div class="session-note"><span class="secure-dot"></span>此浏览器已安全登录</div>
+          <button id="logout-button" class="secondary-button" type="button">退出登录</button>
+        </div>
+      </section>
+
+      <footer class="page-footer"><span>Bluegate Identity</span><span aria-hidden="true">·</span><span>扫码即确认，安全更简单</span></footer>
+    </main>
+    <script src="/app.js" defer></script>
+  </body>
+</html>

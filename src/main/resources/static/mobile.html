@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f8ff" />
+    <title>确认登录 · Bluegate</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="mobile-shell">
+      <section class="mobile-card" aria-labelledby="mobile-title">
+        <a class="brand" href="/" aria-label="Bluegate 首页">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>bluegate</span>
+        </a>
+        <h1 id="mobile-title">模拟 APP</h1>
+        <p class="subtitle">先登录模拟 APP。扫码后再确认电脑端的登录请求。</p>
+        <form id="app-login-form" class="mobile-form">
+          <label>账户<input name="username" autocomplete="username" value="demo" required /></label>
+          <label>密码<input name="password" type="password" autocomplete="current-password" placeholder="输入账户密码" required /></label>
+          <button class="primary-button" type="submit">登录模拟 APP</button>
+        </form>
+        <div id="app-session" class="mobile-session" hidden>
+          <div class="mobile-session-copy">
+            <span class="mobile-session-check" aria-hidden="true">✓</span>
+            <p><span>APP 已登录</span><strong id="app-username"></strong></p>
+          </div>
+          <button id="app-logout" class="mobile-logout" type="button">退出</button>
+        </div>
+        <form id="approve-form" class="mobile-form" hidden>
+          <button class="primary-button" type="submit">确认并登录电脑</button>
+        </form>
+        <p id="mobile-message" class="mobile-message" role="status" aria-live="polite">请先登录模拟 APP。</p>
+      </section>
+    </main>
+    <script src="/mobile.js" defer></script>
+  </body>
+</html>
